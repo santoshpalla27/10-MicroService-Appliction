@@ -37,6 +37,7 @@ services:
       - PAYMENT_SERVICE_ADDR=paymentservice:50052
       - EMAIL_SERVICE_ADDR=emailservice:5000
       - CURRENCY_SERVICE_ADDR=currencyservice:7000
+      - SHOPPING_ASSISTANT_SERVICE_ADDR=shippingservice:50051
       - CART_SERVICE_ADDR=cartservice:7070
     networks:
       - app_network
@@ -77,6 +78,7 @@ services:
       - SHIPPING_SERVICE_ADDR=shippingservice:50051
       - CHECKOUT_SERVICE_ADDR=checkoutservice:5050
       - AD_SERVICE_ADDR=adservice:9555
+      - SHOPPING_ASSISTANT_SERVICE_ADDR=shippingservice:50051
       - ENABLE_PROFILER=0
     networks:
       - app_network
@@ -94,9 +96,9 @@ services:
     build:
       context: ./src/paymentservice
     ports:
-      - "50052:50051"
+      - "50052:50052"
     environment:
-      - PORT=50051
+      - PORT=50052
       - DISABLE_PROFILER=1
     networks:
       - app_network
